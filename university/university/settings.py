@@ -134,7 +134,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Mu Additional Settings
+# My Additional Settings
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 AUTH_USER_MODEL = 'account.CustomUser'  # Tell Django to use this custom user model
 

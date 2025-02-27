@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-from .models import Course
+from .models import Course, Syllabus
 
 class CourseResource(resources.ModelResource):
     class Meta:
@@ -26,3 +26,4 @@ class CourseAdmin(ImportExportModelAdmin):
     )
 
 admin.site.register(Course, CourseAdmin)
+admin.site.register(Syllabus)

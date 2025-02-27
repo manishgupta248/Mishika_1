@@ -81,13 +81,13 @@ export default function Courses() {
         <div className="min-h-screen bg-gray-100 p-6">
             <Toaster position="top-right" />
             <div className="max-w-4xl mx-auto mb-8 bg-white p-6 rounded-lg shadow-md">
-                <h1 className="text-2xl font-bold text-gray-800 mb-4">Create Course</h1>
+                <h1 className="text-2xl font-bold text-[#800000] mb-4">Create Course</h1>
                 <form onSubmit={handleSubmit(onCreateSubmit)} className="grid grid-cols-2 gap-4">
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Course Code</label>
                         <input
                             {...register('COURSE_CODE', { required: 'Course code is required', maxLength: 10 })}
-                            className={`mt-1 w-full p-2 border rounded-md ${errors.COURSE_CODE ? 'border-red-500' : 'border-gray-300'}`}
+                            className={`mt-1 w-full p-2 border border-gray-700 rounded-md ${errors.COURSE_CODE ? 'border-red-500' : 'border-gray-300'}`}
                         />
                         {errors.COURSE_CODE && <p className="text-red-500 text-sm">{errors.COURSE_CODE.message || 'Max 10 chars'}</p>}
                     </div>
@@ -95,48 +95,48 @@ export default function Courses() {
                         <label className="block text-sm font-medium text-gray-700">Course Name</label>
                         <input
                             {...register('COURSE_NAME', { required: 'Course name is required' })}
-                            className={`mt-1 w-full p-2 border rounded-md ${errors.COURSE_NAME ? 'border-red-500' : 'border-gray-300'}`}
+                            className={`mt-1 w-full p-2 border border-gray-700 rounded-md ${errors.COURSE_NAME ? 'border-red-500' : 'border-gray-300'}`}
                         />
                         {errors.COURSE_NAME && <p className="text-red-500 text-sm">{errors.COURSE_NAME.message}</p>}
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Category</label>
-                        <select {...register('CATEGORY', { required: true })} className="mt-1 w-full p-2 border rounded-md">
+                        <select {...register('CATEGORY', { required: true })} className="mt-1 w-full p-2 border border-gray-700 rounded-md">
                             <option value="">Select</option>
                             {courseChoices.CATEGORY?.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
                         </select>
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Course Category</label>
-                        <select {...register('COURSE_CATEGORY', { required: true })} className="mt-1 w-full p-2 border rounded-md">
+                        <select {...register('COURSE_CATEGORY', { required: true })} className="mt-1 w-full p-2 border border-gray-700 rounded-md">
                             <option value="">Select</option>
                             {courseChoices.COURSE_CATEGORY?.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
                         </select>
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Type</label>
-                        <select {...register('TYPE', { required: true })} className="mt-1 w-full p-2 border rounded-md">
+                        <select {...register('TYPE', { required: true })} className="mt-1 w-full p-2 border border-gray-700 rounded-md">
                             <option value="">Select</option>
                             {courseChoices.TYPE?.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
                         </select>
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Credit Scheme</label>
-                        <select {...register('CREDIT_SCHEME', { required: true })} className="mt-1 w-full p-2 border rounded-md">
+                        <select {...register('CREDIT_SCHEME', { required: true })} className="mt-1 w-full p-2 border border-gray-700 rounded-md">
                             <option value="">Select</option>
                             {courseChoices.CREDIT_SCHEME?.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
                         </select>
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">CBCS Category</label>
-                        <select {...register('CBCS_CATEGORY', { required: true })} className="mt-1 w-full p-2 border rounded-md">
+                        <select {...register('CBCS_CATEGORY', { required: true })} className="mt-1 w-full p-2 border border-gray-700 rounded-md">
                             <option value="">Select</option>
                             {courseChoices.CBCS_CATEGORY?.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
                         </select>
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Discipline</label>
-                        <select {...register('DISCIPLINE', { required: true })} className="mt-1 w-full p-2 border rounded-md">
+                        <select {...register('DISCIPLINE', { required: true })} className="mt-1 w-full p-2 border border-gray-700 rounded-md">
                             <option value="">Select</option>
                             {departments.map((d) => <option key={d.id} value={d.id}>{d.name}</option>)}
                         </select>
@@ -146,13 +146,13 @@ export default function Courses() {
                         <input
                             type="number"
                             {...register('MAXIMUM_CREDIT', { required: true, min: 0, max: 20 })}
-                            className={`mt-1 w-full p-2 border rounded-md ${errors.MAXIMUM_CREDIT ? 'border-red-500' : 'border-gray-300'}`}
+                            className={`mt-1 w-full p-2 border border-gray-700 rounded-md ${errors.MAXIMUM_CREDIT ? 'border-red-500' : 'border-gray-300'}`}
                         />
                         {errors.MAXIMUM_CREDIT && <p className="text-red-500 text-sm">0-20 required</p>}
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Qualifying in Nature</label>
-                        <select {...register('QUALIFYING_IN_NATURE', { required: true })} className="mt-1 w-full p-2 border rounded-md">
+                        <select {...register('QUALIFYING_IN_NATURE', { required: true })} className="mt-1 w-full p-2 border border-gray-700 rounded-md">
                             <option value="">Select</option>
                             {courseChoices.QUALIFYING_IN_NATURE?.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
                         </select>
@@ -164,7 +164,7 @@ export default function Courses() {
             </div>
 
             <div className="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-md">
-                <h2 className="text-xl font-semibold text-gray-800 mb-4">Course List</h2>
+                <h2 className="text-xl font-semibold text-[#800000] mb-4">Course List</h2>
                 {/* Search Input */}
                 <div className="mb-4">
                     <input
@@ -175,17 +175,17 @@ export default function Courses() {
                             setCurrentPage(1); // Reset to page 1 on new search
                         }}
                         placeholder="Search by code or name..."
-                        className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-2 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
                 <div className="overflow-x-auto">
                     <table className="min-w-full table-auto">
-                        <thead className="bg-gray-200">
+                        <thead className="bg-[#800000]">
                             <tr>
-                                <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">Code</th>
-                                <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">Name</th>
-                                <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">Discipline</th>
-                                <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">Actions</th>
+                                <th className="px-4 py-2 border border-green-300 text-centre text-sm font-medium text-white ">Code</th>
+                                <th className="px-4 py-2 border border-green-300 text-centre text-sm font-medium text-white ">Name</th>
+                                <th className="px-4 py-2 border border-green-300 text-centre text-sm font-medium text-white ">Discipline</th>
+                                <th className="px-4 py-2 border border-green-300 text-centre text-sm font-medium text-white ">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -197,10 +197,10 @@ export default function Courses() {
                                 </tr>
                             ) : (
                                 courses.map((course) => (
-                                    <tr key={course.id} className="border-b hover:bg-gray-50">
+                                    <tr key={course.id} className="border-b border border-green-300 hover:bg-gray-50">
                                         {editingId === course.id ? (
                                             <>
-                                                <td className="px-4 py-2">
+                                                <td className="px-4   py-2">
                                                     <input
                                                         value={editData.COURSE_CODE}
                                                         onChange={(e) => setEditData({ ...editData, COURSE_CODE: e.target.value })}
@@ -231,11 +231,12 @@ export default function Courses() {
                                         ) : (
                                             <>
                                                 <td onClick={() => showDetails(course)} className="px-4 py-2 text-gray-800 cursor-pointer hover:text-blue-600">{course.COURSE_CODE}</td>
-                                                <td className="px-4 py-2 text-gray-800">{course.COURSE_NAME}</td>
-                                                <td className="px-4 py-2 text-gray-800">{departments.find((d) => d.id === course.DISCIPLINE)?.name}</td>
-                                                <td className="px-4 py-2 flex space-x-2">
+                                                <td className="px-4 py-2 border border-green-300 text-gray-800">{course.COURSE_NAME}</td>
+                                                <td className="px-4 py-2 border border-green-300 text-gray-800">{departments.find((d) => d.id === course.DISCIPLINE)?.name}</td>
+                                                <td className="px-4 py-2 border border-green-300 flex space-x-2">
                                                     <button onClick={() => startEditing(course)} className="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600">Edit</button>
                                                     <button onClick={() => handleDelete(course.id)} className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600">Delete</button>
+                                                    <a href={`/syllabi?course=${course.id}`} className="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600">View Syllabi</a>
                                                 </td>
                                             </>
                                         )}

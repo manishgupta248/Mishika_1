@@ -32,3 +32,33 @@ class Course(models.Model):
 
     def __str__(self):
         return f"{self.COURSE_CODE} - {self.COURSE_NAME}"
+    
+#========================================================================================
+"""
+Syllabus model - This model will store PDF files for course syllabi, linked to a specific 
+course via its COURSE_CODE and COURSE_NAME, and include metadata like the user who uploaded 
+it and the upload timestamp.
+"""
+from django.contrib.auth import get_user_model
+from .validators import validate_pdf
+
+User = get_user_model()
+
+class Syllabus(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='syllabi')
+    syllabus_file = models.FileField(
+        upload_to='syllabi/%Y/%m/%d/',  # e.g., syllabi/2025/02/27/
+        validators=[validate_pdf],
+        max_length=255,
+        help_text="Upload a PDF syllabus file."
+    )
+    uploaded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    version = models.IntegerField(default=1, validators=[MinValueValidator(1)])
+    is_active = models.BooleanField(default=True)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.course.COURSE_CODE} - Syllabus v{self.version}"
+    
+#====================================================================================

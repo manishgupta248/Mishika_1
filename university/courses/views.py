@@ -1,8 +1,8 @@
 from rest_framework import viewsets,  permissions
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from .models import Course
-from .serializers import CourseSerializer
+from .models import Course, Syllabus
+from .serializers import CourseSerializer, SyllabusSerializer
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
@@ -38,4 +38,22 @@ def course_choices(request):
         }
     return Response(choices)
 
+#=================================================================================
+
+class SyllabusViewSet(viewsets.ModelViewSet):
+    queryset = Syllabus.objects.all()
+    serializer_class = SyllabusSerializer
+    pagination_class = CoursePagination  # Optional: paginate syllabi too
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filterset_fields = ['course']  # Filter by course ID
+    search_fields = ['course__COURSE_CODE', 'course__COURSE_NAME']  # Search by course code/name
+
+    def get_permissions(self):
+        """Set permissions based on the request method."""
+        if self.action in ['list', 'retrieve']:
+            return [permissions.AllowAny()]  # GET requests (list & retrieve) are open
+        return [permissions.IsAuthenticated()]  # POST, PUT, DELETE require auth]
+
+    def perform_create(self, serializer):
+        serializer.save(uploaded_by=self.request.user)
 

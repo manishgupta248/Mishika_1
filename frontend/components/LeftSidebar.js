@@ -8,7 +8,7 @@ export default function LeftSidebar() {
         <Link href="/" className="block text-[#800000] hover:bg-gray-300 p-2 rounded">Dashboard</Link>
         <Link href="/departments" className="block text-[#800000] hover:bg-gray-300 p-2 rounded">Departments</Link>
         <Link href="/courses" className="block text-[#800000] hover:bg-gray-300 p-2 rounded">Courses</Link>
-        <Link href="/contact" className="block text-[#800000] hover:bg-gray-300 p-2 rounded">Contact</Link>
+        <Link href="/syllabi" className="block text-[#800000] hover:bg-gray-300 p-2 rounded">Syllabi</Link>
       </nav>
     </aside>
   );

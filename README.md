@@ -156,7 +156,7 @@ GET /api/auth/users/me/ - Get current user (requires token)
 > yarn add react-hook-form
 > yarn add use-debounce 
 ----------------------------------------------------
-
+> pip freeze > requirements.txt
 …or create a new repository on the command line
 echo "# Mishika_1" >> README.md
 git init

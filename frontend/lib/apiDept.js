@@ -19,3 +19,10 @@ export const createCourse = (data) => api.post('courses/courses/', data);
 export const updateCourse = (id, data) => api.put(`courses/courses/${id}/`, data);
 export const deleteCourse = (id) => api.delete(`courses/courses/${id}/`);
 export const getCourseChoices = () => api.get('courses/choices/');
+
+// Syllabus API calls
+export const getSyllabi = (page = 1, limit = 10, courseId = '', search = '') =>
+    api.get(`courses/syllabi/?page=${page}&limit=${limit}${courseId ? `&course=${courseId}` : ''}${search ? `&search=${search}` : ''}`);
+export const updateSyllabus = (id, data) => api.patch(`courses/syllabi/${id}/`, data);
+export const createSyllabus = (data) => api.post('courses/syllabi/', data, { headers: { 'Content-Type': 'multipart/form-data' } });
+export const deleteSyllabus = (id) => api.delete(`courses/syllabi/${id}/`);
