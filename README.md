@@ -156,16 +156,16 @@ GET /api/auth/users/me/ - Get current user (requires token)
 > yarn add react-hook-form
 > yarn add use-debounce 
 ----------------------------------------------------
+
 …or create a new repository on the command line
-echo "# 2-Auth-Django-Next" >> README.md
+echo "# Mishika_1" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/manishgupta248/2-Auth-Django-Next.git
-
+git remote add origin https://github.com/manishgupta248/Mishika_1.git
 git push -u origin main
 …or push an existing repository from the command line
-git remote add origin https://github.com/manishgupta248/2-Auth-Django-Next.git
+git remote add origin https://github.com/manishgupta248/Mishika_1.git
 git branch -M main
 git push -u origin main
